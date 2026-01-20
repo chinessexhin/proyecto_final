@@ -15,7 +15,7 @@ export const UserProvider = ({ children }) => {
         throw new Error("Faltan datos");
       }
 
-      setToken("token-falso-123");
+      setToken("token");
       setEmail(email);
 
     } catch (err) {
@@ -43,19 +43,9 @@ export const UserProvider = ({ children }) => {
     setProfile(null);
   };
 
-  const getProfile = async () => {
-    if (!token) return;
-
-    setProfile({
-      email,
-      rol: "usuario",
-      lenguaje: "JavaScript"
-    });
-  };
-
   return (
     <UserContext.Provider
-      value={{ token, email, profile, login, register, logout, getProfile }}
+      value={{ token, email, profile, login, register, logout }}
     >
       {children}
     </UserContext.Provider>
